@@ -1,6 +1,6 @@
 # vite-react-redux-saga-typescript
 
-![build status](https://img.shields.io/github/workflow/status/dulajdeshan/vite-react-redux-saga-typescript/Run%20Tests/main)
+![Tests](https://github.com/Dulajdeshan/vite-react-redux-saga-typescript/actions/workflows/run-tests.yml/badge.svg)
 
 React Redux and Saga template for [Vite](https://vitejs.dev/guide/)
 
@@ -18,12 +18,26 @@ React Redux and Saga template for [Vite](https://vitejs.dev/guide/)
 
 To use this template within your project, use `degit dulajdeshan/vite-react-redux-saga-typescript` when creating a new react app.
 
-For example:
+1. Create my-app with the boilerplate
 
 ```sh
+
 npx degit dulajdeshan/vite-react-redux-saga-typescript my-app
 
-# or
+```
 
-yarn degit dulajdeshan/vite-react-redux-saga-typescript my-app
+2. Install dependencies
+
+```sh
+
+cd my-app
+
+# Using yarn
+
+yarn install
+
+# Using npm
+
+npm install
+
 ```
