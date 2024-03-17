@@ -1,0 +1,30 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Checking for project linting, formatting, typescript, and build issues 🏗️👷'
+
+yarn check:lint ||
+(
+    echo 'Linting issues found ❌'
+    false; 
+)
+
+yarn check:format ||
+(
+    echo 'Formatting issues found ❌ Please run `yarn format` to fix this automatically.';
+    false;
+)
+
+yarn check:types ||
+(
+    echo 'Typescript issues found ❌'
+    false;
+)
+
+yarn build ||
+(
+    echo 'Build issues found ❌'
+    false;
+)
+
+echo 'No issues found ✅'
