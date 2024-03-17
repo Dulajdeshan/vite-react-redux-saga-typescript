@@ -1,4 +1,4 @@
-import { delay, type Effect, type ForkEffect,put, takeEvery } from 'redux-saga/effects';
+import { delay, type Effect, type ForkEffect, put, takeEvery } from 'redux-saga/effects';
 
 import { type PayloadAction } from '@reduxjs/toolkit';
 
@@ -14,7 +14,9 @@ export function* watchDecrementAsync(): Generator<Effect, void> {
   yield put(counterActions.decrement());
 }
 
-export function* watchIncrementByAmountAsync(action: PayloadAction<number>): Generator<Effect, void> {
+export function* watchIncrementByAmountAsync(
+  action: PayloadAction<number>,
+): Generator<Effect, void> {
   try {
     if (typeof action.payload !== 'number') {
       throw new Error('Invalid parameter');
