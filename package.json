@@ -13,7 +13,8 @@
     "check:lint": "eslint . --ext ts --ext tsx --ext js",
     "check:format": "prettier --check .",
     "check:types": "tsc --pretty --noEmit",
-    "check:all": "yarn check:lint && yarn check:format && yarn check:types && yarn build"
+    "check:all": "yarn check:lint && yarn check:format && yarn check:types && yarn build",
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "^18.2.0",
