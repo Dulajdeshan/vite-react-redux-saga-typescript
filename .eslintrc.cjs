@@ -32,6 +32,9 @@ module.exports = {
 
     // disable unused vars check for variables starting with underscore _
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+
+    // disable no empty function to work with saga
+    '@typescript-eslint/no-empty-function': 'off'
   },
   overrides: [
     // unit and integration testing configuration

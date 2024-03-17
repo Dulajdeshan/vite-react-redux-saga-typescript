@@ -1,5 +1,5 @@
 <h1 align="center">
-  Vite Template React, Redux, Saga and Typescript
+  Vite Template React, Typescript, Redux, Saga, ESLint and Prettier
 </h1>
 
 <p align="center">
@@ -13,9 +13,8 @@
 
 <p align="center">
    A starter for React with Typescript with the fast Vite. Includes Redux (Redux-Toolkit), Saga, Eslint and Prettier
+<img src='./src/assets/screenshot.png' alt='vite-react-redux-saga-typescript'>
 </p>
-
-![Vite React Redux Saga Typescript](https://github.com/Dulajdeshan/vite-react-redux-saga-typescript/assets/screenshot.png)
 
 ## What is Included?
 
@@ -77,7 +76,7 @@ npm run build
 
 ## Credits
 
-Vite Template React is built and maintained by [Dulaj Ariyaratne](https://github.com/Dulajdeshan).
+This template is built and maintained by [Dulaj Ariyaratne](https://github.com/Dulajdeshan).
 
 ## License
 

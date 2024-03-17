@@ -1,12 +1,31 @@
-import { useState } from 'react';
-
 import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
+import { counterActions } from './redux/counter/slice';
+import { useAppDispatch, useAppSelector } from './redux/hooks';
+import { Counter } from './components';
 
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const dispatch = useAppDispatch();
+
+  const { value } = useAppSelector((state) => state.counter);
+
+  const increment = (): void => {
+    dispatch(counterActions.increment());
+  };
+
+  const decrement = (): void => {
+    dispatch(counterActions.decrement());
+  };
+
+  const incrementAsync = (): void => {
+    dispatch(counterActions.incrementAsync());
+  };
+
+  const decrementAsync = (): void => {
+    dispatch(counterActions.decrementAsync());
+  };
 
   return (
     <>
@@ -20,7 +39,13 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+        <Counter
+          onIncrement={increment}
+          onDecrement={decrement}
+          onIncrementAsync={incrementAsync}
+          onDecrementAsync={decrementAsync}
+          value={value}
+        />
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
