@@ -53,7 +53,7 @@ describe('counter saga', () => {
 
     // we are passing payload as null to check the error handling
     await runSaga(fakeStore, watchIncrementByAmountAsync, {
-      payload: null,
+      payload: undefined,
       type: counterActions.incrementByAmountAsync.type,
     }).toPromise();
     expect(dispatchedActions).toEqual([counterActions.incrementByAmountAsyncFailure()]);

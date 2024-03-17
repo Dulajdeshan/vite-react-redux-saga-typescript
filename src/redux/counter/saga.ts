@@ -15,7 +15,7 @@ export function* watchDecrementAsync(): Generator<Effect, void> {
 }
 
 export function* watchIncrementByAmountAsync(
-  action: PayloadAction<number>,
+  action: PayloadAction<number | undefined>,
 ): Generator<Effect, void> {
   try {
     if (typeof action.payload !== 'number') {
