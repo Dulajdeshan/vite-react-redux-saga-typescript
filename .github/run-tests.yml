@@ -1,0 +1,48 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['18.x', '20.x']
+
+    steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.OS }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-yarn-${{ matrix.node-version }}-
+      - name: Install dependencies
+        run: yarn --prefer-offline
+      - name: Check linting
+        run: yarn check:lint
+      - name: Check formatting
+        run: yarn check:format
+      - name: Check types
+        run: yarn check:types
+      - name: Run tests
+        run: yarn test
