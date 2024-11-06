@@ -100,6 +100,6 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['dist', 'eslint.config.mjs', 'eslint.config.backup.js', '__mocks__'],
+    ignores: ['dist', 'eslint.config.mjs', '__mocks__'],
   },
 );
