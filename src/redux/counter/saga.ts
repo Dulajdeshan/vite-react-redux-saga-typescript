@@ -24,7 +24,7 @@ export function* watchIncrementByAmountAsync(
     yield delay(1000);
     yield put(counterActions.incrementByAmount(action.payload));
     yield put(counterActions.incrementByAmountAsyncSuccess());
-  } catch (error) {
+  } catch {
     yield put(counterActions.incrementByAmountAsyncFailure());
   }
 }
