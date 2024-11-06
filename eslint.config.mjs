@@ -21,6 +21,8 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
+  reactPlugin.configs.flat.recommended,
+  reactPlugin.configs.flat['jsx-runtime'],
   prettierConfig,
   {
     files: ['**/*.ts', '**/*.tsx'],
@@ -45,12 +47,12 @@ export default tseslint.config(
       },
     },
     plugins: {
-      react: reactPlugin,
       'react-refresh': reactRefreshPlugin,
       'simple-import-sort': simpleImportSortPlugin,
       'react-hooks': reactHooksPlugin,
     },
     rules: {
+      ...reactHooksPlugin.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       // enforce import and export sorting
       'simple-import-sort/imports': 'error',
